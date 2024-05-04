@@ -5,21 +5,21 @@ import mysql.connector
 # This function generates insert statements for REFERENCE_SEQUENCE table
 def generate_ref(accession, link, sequence, pathogen_id, segment):
 	if segment == '0':
-		insert_str = f"INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ('{accession}', '{link}', '{sequence}', {pathogen_id}, NULL);"
+		insert_str = f'INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ("{accession}", "{link}", "{sequence}", {pathogen_id}, NULL);'
 	else:
-		insert_str = f"INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ('{accession}', '{link}', '{sequence}', {pathogen_id}, {segment});"
+		insert_str = f'INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ("{accession}", "{link}", "{sequence}", {pathogen_id}, {segment});'
 	return insert_str
 
 # This function generates insert statements for CDS table
 def generate_cds(accession, five_coord, three_coord, strand, gene_symbol, product):
 	if gene_symbol is None and product is None:
-		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', NULL, NULL);"
+		insert_str = f'INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ("{accession}", {five_coord}, {three_coord}, "{strand}", NULL, NULL);'
 	elif gene_symbol is None:
-		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', NULL, '{product}');"
+		insert_str = f'INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ("{accession}", {five_coord}, {three_coord}, "{strand}", NULL, "{product}");'
 	elif product is None:
-		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', '{gene_symbol}', NULL);"
+		insert_str = f'INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ("{accession}", {five_coord}, {three_coord}, "{strand}", "{gene_symbol}", NULL);'
 	else:
-		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', '{gene_symbol}', '{product}');"
+		insert_str = f'INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ("{accession}", {five_coord}, {three_coord}, "{strand}", "{gene_symbol}", "{product}");'
 	return insert_str
 
 # This function extracts reference sequence and CDS information from the input GenBank file
