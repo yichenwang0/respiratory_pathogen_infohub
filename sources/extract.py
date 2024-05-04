@@ -1,8 +1,35 @@
 import os
 import re
+import mysql.connector
 
-# This function extracts CDS information from the input GenBank file
-def extraction(input_file) :
+# This function generates insert statements for REFERENCE_SEQUENCE table
+def generate_ref(accession, link, sequence, pathogen_id, segment):
+	if segment == '0':
+		insert_str = f"INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ('{accession}', '{link}', '{sequence}', {pathogen_id}, NULL);"
+	else:
+		insert_str = f"INSERT INTO REFERENCE_SEQUENCE (Accession, Link, Sequence, Pathogen_id, Segment) VALUES ('{accession}', '{link}', '{sequence}', {pathogen_id}, {segment});"
+	return insert_str
+
+# This function generates insert statements for CDS table
+def generate_cds(accession, five_coord, three_coord, strand, gene_symbol, product):
+	if gene_symbol is None and product is None:
+		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', NULL, NULL);"
+	elif gene_symbol is None:
+		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', NULL, '{product}');"
+	elif product is None:
+		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', '{gene_symbol}', NULL);"
+	else:
+		insert_str = f"INSERT INTO CDS (Accession, 5_coordinate, 3_coordinate, Strand, Gene_symbol, Product) VALUES ('{accession}', {five_coord}, {three_coord}, '{strand}', '{gene_symbol}', '{product}');"
+	return insert_str
+
+# This function extracts reference sequence and CDS information from the input GenBank file
+# and populate ywang833_final database
+def extraction(input_file, pathogen_id, segment):
+
+	# Establish connection to MySQL database
+	conn = mysql.connector.connect(user='ywang833', password='Bioinformatics!', host='localhost', database='ywang833_final')
+	curs = conn.cursor()
+
 	# Variables to store accesion, sequence, and annotations
 	accession_no = ''
 	sequence = ''
@@ -79,9 +106,22 @@ def extraction(input_file) :
 
 	CDS_list.append((five_coord, three_coord, strand, gene_symbol, product_name))
 	
-	print(CDS_list)
-	print(accession_no)
-	print(sequence)
+	# Insert statement for REFERENCE_SEQUENCE table
+	link = f"https://www.ncbi.nlm.nih.gov/nuccore/{accession_no}?report=genbank"
+	ref_insert = generate_ref(accession_no, link, sequence, pathogen_id, segment)
+	print(ref_insert)
+	curs.execute(ref_insert)
+
+	# Insert statements for CDS table
+	for cds in CDS_list:
+		cds_insert = generate_cds(accession_no, *cds)
+		print(cds_insert)
+		curs.execute(cds_insert)
+
+	# Commit changes and close connection
+	conn.commit()
+	curs.close()
+	conn.close()
 
 if __name__ == "__main__":
 	# Prompt user to enter path or file name for the extraction
@@ -90,4 +130,6 @@ if __name__ == "__main__":
 	if not os.path.isfile(input_file):
 		print("Error: No file found")
 	else:
-		extraction(input_file)
+		pathogen_id = input("Enter pathogen ID: ")
+		segment = input("Enter segment (0 if not applicable): ")
+		extraction(input_file, pathogen_id, segment)
