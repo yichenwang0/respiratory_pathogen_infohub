@@ -74,19 +74,23 @@ def extraction(input_file, pathogen_id, segment):
 				CDS_product = True
 			if 'complement' in line:
 				strand = '-'
+		elif CDS_gene and (line.strip().startswith('gene  ') or line.strip().startswith('mat_peptide  ')):
+			CDS_gene = False
+		elif CDS_product and (line.strip().startswith('gene  ') or line.strip().startswith('mat_peptide  ')):
+			CDS_product = False
+		elif product_continue:
+			product_accumulator += ' '
+			product_accumulator += line.strip().strip('"')
+			if '"' in line.strip():
+				product_name = product_accumulator
+				CDS_product = False
+				product_continue = False
+				product_accumulator = ''
 		elif 'gene=' in line and CDS_gene:
 			gene = re.search(r'/gene="([^"]+)"', line)
 			if gene:
 				gene_symbol = gene.group(1)
 				CDS_gene = False
-		elif product_continue:
-                        product_accumulator += ' '
-                        product_accumulator += line.strip().strip('"')
-                        if '"' in line.strip():
-                                product_name = product_accumulator
-                                CDS_product = False
-                                product_continue = False
-                                product_accumulator = ''
 		elif 'product=' in line and CDS_product:
 			product = re.search(r'/product="([^"]+)"', line)
 			if product:
