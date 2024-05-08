@@ -36,7 +36,7 @@ function runSearch( term ) {
 	var frmStr = $('#pathogen_search').serialize();
     
 	$.ajax({
-		url: './page1_search.cgi',
+		url: './pathogen_search.cgi',
 		dataType: 'json',
 		data: frmStr,
 		success: function(data, textStatus, jqXHR) {
