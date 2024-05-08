@@ -5,29 +5,35 @@ import os
 import mysql.connector
 
 def main():
-    print("Content-Type: application/json\n\n")
-    form = cgi.FieldStorage()
-    term = form.getvalue('search_term')
-        
-    conn = mysql.connector.connect(user='ywang833', password='Bioinformatics!', host='localhost', database='biotest')
-    cursor = conn.cursor()
-    
-    qry = """
-          SELECT locus_id, product
-            FROM genes
-           WHERE product LIKE %s
-    """
-    cursor.execute(qry, ('%' + term + '%', ))
+	print("Content-Type: application/json\n\n")
+	form = cgi.FieldStorage()
+	term = form.getvalue('search_term')
 
-    results = { 'match_count': 0, 'matches': list() }
-    for (locus_id, product) in cursor:
-        results['matches'].append({'locus_id': locus_id, 'product': product})
-        results['match_count'] += 1
+	conn = mysql.connector.connect(user='ywang833', password='Bioinformatics!', host='localhost', database='ywang833_final')
+	cursor = conn.cursor()
 
-    conn.close()
+	qry = """
+		SELECT Scientific_name, Other_names, Major_subtypes, Genome, Symptoms
+		FROM PATHOGEN
+		WHERE Scientific_name LIKE %s OR Other_names LIKE %s
+	"""
+	cursor.execute(qry, ('%' + term + '%', '%' + term + '%'))
 
-    print(json.dumps(results))
+	results = { 'match_count': 0, 'matches': list() }
+	for (scientific_name, other_names, major_subtypes, genome, symptoms) in cursor:
+		results['matches'].append({
+			'scientific_name': scientific_name,
+			'other_names': other_names,
+			'major_subtypes': major_subtypes,
+			'genome': genome,
+			'symptoms': symptoms
+		})
+		results['match_count'] += 1
+
+	conn.close()
+	
+	print(json.dumps(results))
 
 
 if __name__ == '__main__':
-    main()
+	main()
