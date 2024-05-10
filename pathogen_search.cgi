@@ -13,20 +13,22 @@ def main():
 	cursor = conn.cursor()
 
 	qry = """
-		SELECT Scientific_name, Other_names, Major_subtypes, Genome, Symptoms
+		SELECT Pathogen_id, Scientific_name, Other_names, Major_subtypes, Genome, Symptoms
 		FROM PATHOGEN
 		WHERE Scientific_name LIKE %s OR Other_names LIKE %s
 	"""
 	cursor.execute(qry, ('%' + term + '%', '%' + term + '%'))
 
 	results = { 'match_count': 0, 'matches': list() }
-	for (scientific_name, other_names, major_subtypes, genome, symptoms) in cursor:
+	for (pathogen_id, scientific_name, other_names, major_subtypes, genome, symptoms) in cursor:
+		annotation_link = f'gene_annotation.cgi?pathogen_id={pathogen_id}&pathogen={scientific_name}'
 		results['matches'].append({
 			'scientific_name': scientific_name,
 			'other_names': other_names,
 			'major_subtypes': major_subtypes,
 			'genome': genome,
-			'symptoms': symptoms
+			'symptoms': symptoms,
+			'annotation_link': annotation_link
 		})
 		results['match_count'] += 1
 

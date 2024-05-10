@@ -70,6 +70,7 @@ function processJSON( data ) {
 		$('<td/>', { "text" : item.major_subtypes }).appendTo('#' + this_row_id);
 		$('<td/>', { "text" : item.genome }).appendTo('#' + this_row_id);
 		$('<td/>', { "text" : item.symptoms }).appendTo('#' + this_row_id);
+		$('<td/>').append($('<a/>', {"href": item.annotation_link, "text": "View Gene Annotation"})).appendTo('#' + this_row_id);
 
 	});
     

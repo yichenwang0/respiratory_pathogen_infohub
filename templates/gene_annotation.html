@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Gene Annotation</title>
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="css/gene_annotation_result.css" />
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"/>
+</head>
+
+<body id="main">
+
+	<h1>Respiratory Pathogen Information Hub</h1>
+	<section id='results'>
+		<p>{{ pathogen }} Gene Annotation</p>
+		<p>NCBI Reference Sequence: <a href="{{ link }}" id="ncbi_link">{{ accession }}</a></p>
+		<table id="gene_annotation_table">
+			<thead>
+			<tr>
+				<td>5' Coordinate</td>
+				<td>3' Coordinate</td>
+				<td>Strand</td>
+				<td>Gene</td>
+				<td>Product</td>
+				<td>Sequence</td>	
+			</tr>
+			</thead>
+			<tbody>
+				{% for entry in entries %}
+				<tr>
+					<td>{{ entry[0] }}</td>
+					<td>{{ entry[1] }}</td>
+					<td>{{ entry[2] }}</td>
+					<td>{{ entry[3] }}</td>
+					<td>{{ entry[4] }}</td>
+					<td>{{ entry[5] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</section>
+
+</body>
+
+</html>
