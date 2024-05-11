@@ -20,7 +20,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
    Option 2: Search for the common name of a specific respiratory pathogen.
    ![image](https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/db4caa24-14b2-4670-92b5-92adde3c8a66)
 
-   Option 3: Search for the scientific name of a specific respiratory pathogen. This example also demonstrates the autocomplete function. Note that autocomplete suggestions always display scientific names, even if a common name is entered.
+   Option 3: Search for the scientific name of a specific respiratory pathogen. This example also demonstrates the autocomplete function. Note that autocomplete suggestions always display scientific names, even if a common name is entered.  
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/5ac68f8c-f731-4963-a664-ecaec402f37b" alt="image" width="40%">
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/faf1250d-bc7f-4794-b279-5796de061595" alt="image" width="80%">
 
