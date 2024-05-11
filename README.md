@@ -12,7 +12,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
 
 ## Usage
 1. Enter a search term and hit submit.  
-   <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/1b644d40-7ffc-48d7-8311-65ad2afe4911" alt="image" width="70%">
+   <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/1b644d40-7ffc-48d7-8311-65ad2afe4911" alt="image" width="40%">
 
    Option 1: Search for a general term to view all respiratory pathogens with similar names.
    ![image](https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/a73e5041-c0f7-489c-a7dd-5e1861949137)
