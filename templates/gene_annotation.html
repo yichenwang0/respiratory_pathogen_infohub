@@ -15,7 +15,18 @@
 	<h1>Respiratory Pathogen Information Hub</h1>
 	<section id='results'>
 		<p>{{ pathogen }} Gene Annotation</p>
-		<p>NCBI Reference Sequence: <a href="{{ link }}" id="ncbi_link">{{ accession }}</a></p>
+		<p>
+			NCBI Reference Sequence: 
+			{% if not multiple_segment %}
+				<a href="{{ link }}">{{ accession }}</a>
+			{% else %}
+				<ul>
+					{% for i in range(accession | length) %}
+						<li><a href="{{ link[i] }}">{{ accession[i] }}</a></li>
+					{% endfor %}
+				</ul>
+			{% endif %}	
+		</p>
 		<table id="gene_annotation_table">
 			<thead>
 			<tr>
@@ -24,7 +35,10 @@
 				<td>Strand</td>
 				<td>Gene</td>
 				<td>Product</td>
-				<td>Sequence</td>	
+				<td>Sequence</td>
+				{% if multiple_segment %}
+					<td>Segment</td>
+				{% endif %}
 			</tr>
 			</thead>
 			<tbody>
@@ -35,7 +49,10 @@
 					<td>{{ entry[2] }}</td>
 					<td>{{ entry[3] }}</td>
 					<td>{{ entry[4] }}</td>
-					<td>{{ entry[5] }}</td>
+					<td id="gene_sequence">{{ entry[5] }}</td>
+					{% if multiple_segment %}
+						<td>{{ entry[6] }}</td>
+					{% endif %}
 				</tr>
 				{% endfor %}
 			</tbody>

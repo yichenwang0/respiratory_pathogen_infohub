@@ -22,7 +22,7 @@ table td {
 	padding: 2px 10px;
 }
 
-table td:last-child {
+table td#gene_sequence {
 	max-width: 1000px;
 	word-break: break-all;
 }

@@ -22,6 +22,8 @@ def main():
 	results = { 'match_count': 0, 'matches': list() }
 	for (pathogen_id, scientific_name, other_names, major_subtypes, genome, symptoms) in cursor:
 		annotation_link = f'gene_annotation.cgi?pathogen_id={pathogen_id}&pathogen={scientific_name}'
+		if major_subtypes is None:
+			major_subtypes = 'N/A'
 		results['matches'].append({
 			'scientific_name': scientific_name,
 			'other_names': other_names,
