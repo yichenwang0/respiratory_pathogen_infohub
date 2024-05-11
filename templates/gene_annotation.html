@@ -30,29 +30,29 @@
 		<table id="gene_annotation_table">
 			<thead>
 			<tr>
+				{% if multiple_segment %}
+					<td>Segment</td>
+				{% endif %}
 				<td>5' Coordinate</td>
 				<td>3' Coordinate</td>
 				<td>Strand</td>
 				<td>Gene</td>
 				<td>Product</td>
 				<td>Sequence</td>
-				{% if multiple_segment %}
-					<td>Segment</td>
-				{% endif %}
 			</tr>
 			</thead>
 			<tbody>
 				{% for entry in entries %}
 				<tr>
+					{% if multiple_segment %}
+						<td>{{ entry[6] }}</td>
+					{% endif %}
 					<td>{{ entry[0] }}</td>
 					<td>{{ entry[1] }}</td>
 					<td>{{ entry[2] }}</td>
 					<td>{{ entry[3] }}</td>
 					<td>{{ entry[4] }}</td>
 					<td id="gene_sequence">{{ entry[5] }}</td>
-					{% if multiple_segment %}
-						<td>{{ entry[6] }}</td>
-					{% endif %}
 				</tr>
 				{% endfor %}
 			</tbody>
