@@ -11,7 +11,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
 - **Support for Multiple Segments:** The application has a specialized layout for pathogens with segmented genomes (influenza).
 
 ## Usage
-1. Enter a search term and hit submit.
+1. Enter a search term and hit submit.  
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/1b644d40-7ffc-48d7-8311-65ad2afe4911" alt="image" width="70%">
 
    Option 1: Search for a general term to view all respiratory pathogens with similar names.
