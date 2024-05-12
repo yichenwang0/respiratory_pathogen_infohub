@@ -36,8 +36,13 @@ Please note that the screenshots only display the top portion of the gene annota
 **3. Visit the corresponding NCBI GenBank reference sequence page by clicking the highlighted accession number. (Optional)**  
 
 ## Requirements
-The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.jhu.edu server. To access the application online, you need to be connected to the JHU Network or VPN. Once connected to the JHU network or VPN, you can access the application using the following link: http://bfx3.aap.jhu.edu/ywang833/final/respiratory_pathogen_infohub.html
-
+### Deployment Options ###
+- **Online Access**: The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.jhu.edu server. To access the application online, you need to be connected to the JHU Network or VPN. Once connected to the JHU network or VPN, you can access the application using the following link: [Respiratory Pathogen Information Hub](http://bfx3.aap.jhu.edu/ywang833/final/respiratory_pathogen_infohub.html) A stable internet connection is recommended for seamless usage.
+- **Self-Deployment**: You can clone this GitHub repository to another web server that is capable of serving Python CGI files. Execute the `database_setup.sql` script in a MySQL server to set up the required database schema. Run the `extract.py` script with the path to each GenBank file and its corresponding `pathogen_id` to finish populating the tables. Make sure to modify the MySQL connector in the Python CGI scripts accordingly. 
+### Hardware Recommendations ###
+For optimal performance, the following hardware specifications are recommended:
+- **Memory**: At least 2 GB of RAM.
+- **CPU**: A clock speed of at least 2.5 GHz.
 
 ## File Descriptions
 
@@ -56,7 +61,7 @@ The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.j
   - `search.js`: JavaScript file responsible for enabling autocomplete functionality in the search box and dynamically updating the result table on the pathogen search page.
 
 - sources:
-  - `.gb files`: GenBank files for each respiratory pathogen in the database.
+  - `.gb files`: GenBank files for all respiratory pathogens in the database.
   - `database_setup.sql`: SQL script for setting up the database schema and populating the PATHOGEN table.
   - `extract.py`: Python script for extracting information from GenBank files and populating the REFERENCE_SEQUENCE and CDS tables in the MySQL database.
 
