@@ -11,7 +11,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
 - **Support for Multiple Segments:** The application has a specialized layout for pathogens with segmented genomes (influenza).
 
 ## Usage
-1. Enter a search term and hit submit.  
+**1. Enter a search term and hit submit.**  
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/1b644d40-7ffc-48d7-8311-65ad2afe4911" alt="image" width="40%">
 
    Option 1: Search for a general term to view all respiratory pathogens with similar names.
@@ -24,7 +24,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/5ac68f8c-f731-4963-a664-ecaec402f37b" alt="image" width="40%">
    <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/faf1250d-bc7f-4794-b279-5796de061595" alt="image" width="80%">
 
-3. Optional: Select a pathogen to view its detailed gene annotation by clicking "View Gene Annotation"
+**2. Select a pathogen to view its detailed gene annotation by clicking "View Gene Annotation". (Optional)**  
 
    Example 1: Human bocavirus 1 
    ![image](https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/531317fb-1708-4fe1-b84d-4150a88554fd)
@@ -33,7 +33,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
    ![image](https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/5765704e-d739-4428-925e-9630ca8f583a)
    Please note that the screenshots only display the top portion of the gene annotation page.
    
-4. Optional: Visit the corresponding NCBI GenBank reference sequence page by clicking the highlighted accession number.
+**3. Visit the corresponding NCBI GenBank reference sequence page by clicking the highlighted accession number. (Optional)**  
 
 ## Requirements
 The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.jhu.edu server. To access the application, you need to be connected to JHU Network or VPN. Once connected to the JHU network or VPN, you can access the application using the following link: http://bfx3.aap.jhu.edu/ywang833/final/respiratory_pathogen_infohub.html
