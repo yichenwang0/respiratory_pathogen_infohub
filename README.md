@@ -24,7 +24,7 @@ The Respiratory Pathogen Information Hub is a web application designed to provid
 <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/5ac68f8c-f731-4963-a664-ecaec402f37b" alt="image" width="40%">
 <img src="https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/faf1250d-bc7f-4794-b279-5796de061595" alt="image" width="80%">
 
-### 2. Select a pathogen to view its detailed gene annotation by clicking "View Gene Annotation". (Optional) ###
+### 2. Select a pathogen to view its detailed gene annotations by clicking "View Gene Annotation". (Optional) ###
 
 **Example 1:** Human bocavirus 1
 ![image](https://github.com/yichenwang0/respiratory_disease_infohub/assets/59595330/531317fb-1708-4fe1-b84d-4150a88554fd)
@@ -66,4 +66,4 @@ For optimal performance, the following hardware specifications are recommended:
   - `extract.py`: Python script for extracting information from GenBank files and populating the REFERENCE_SEQUENCE and CDS tables in the MySQL database.
 
 - templates:
-  - `gene_annotation.html`: HTML template for displaying gene annotation information. 
+  - `gene_annotation.html`: HTML template for displaying gene annotations. 
