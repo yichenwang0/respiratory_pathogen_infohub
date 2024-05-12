@@ -41,24 +41,24 @@ The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.j
 
 ## File Descriptions
 
-`Project Proposal.pdf`: PDF document containing the original project proposal.
-`README.md`: You are here! Markdown file containing basic information about the application and instructions for usage.
-`gene_annotation.cgi`: Python CGI script that retrieves gene annotation information from the MySQL database based on the provided pathogen ID and generates a dynamic HTML page displaying the gene annotations.
-`pathogen_search.cgi`: Python CGI script responsible for handling the search functionality on the main page of the infohub. It retrieves pathogen information from the MySQL database based on the user's input and returns the results in JSON format to be processed by the JavaScript frontend.
-`pathogen_suggestion.cgi`: Python CGI script designed to provide autocomplete suggestions for pathogens as the user types into the search box. It interacts with the MySQL database to fetch distinct pathogen names that match the user's input. These suggestions are then returned to the client-side JavaScript for display in real-time.
-`respiratory_pathogen_infohub.html`: HTML file serving as the main webpage for the respiratory pathogen information hub.
+- `Project Proposal.pdf`: PDF document containing the original project proposal.
+- `README.md`: You are here! Markdown file containing basic information about the application and instructions for usage.
+- `gene_annotation.cgi`: Python CGI script that retrieves gene annotation information from the MySQL database based on the provided pathogen ID and generates a dynamic HTML page displaying the gene annotations.
+- `pathogen_search.cgi`: Python CGI script responsible for handling the search functionality on the main page of the infohub. It retrieves pathogen information from the MySQL database based on the user's input and returns the results in JSON format to be processed by the JavaScript frontend.
+- `pathogen_suggestion.cgi`: Python CGI script designed to provide autocomplete suggestions for pathogens as the user types into the search box. It interacts with the MySQL database to fetch distinct pathogen names that match the user's input. These suggestions are then returned to the client-side JavaScript for display in real-time.
+- `respiratory_pathogen_infohub.html`: HTML file serving as the main webpage for the respiratory pathogen information hub.
 
 > css:
->> `search_product.css`: CSS file for styling the pathogen search page.
->> `gene_annotation_result.css`: CSS file for styling the gene annotation page.
+>> - `search_product.css`: CSS file for styling the pathogen search page.
+>> - `gene_annotation_result.css`: CSS file for styling the gene annotation page.
 
 > js:
->> `search.js`: JavaScript file responsible for enabling autocomplete functionality in the search box and dynamically updating the result table on the pathogen search page.
+>> - `search.js`: JavaScript file responsible for enabling autocomplete functionality in the search box and dynamically updating the result table on the pathogen search page.
 
 > sources:
->> `.gb files`: GenBank files for each respiratory pathogen in the database.
->> `database_setup.sql`: SQL script for setting up the database schema and populating the PATHOGEN table.
->> `extract.py`: Python script for extracting information from GenBank files and populating the REFERENCE_SEQUENCE and CDS tables in the MySQL database.
+>> - `.gb files`: GenBank files for each respiratory pathogen in the database.
+>> - `database_setup.sql`: SQL script for setting up the database schema and populating the PATHOGEN table.
+>> - `extract.py`: Python script for extracting information from GenBank files and populating the REFERENCE_SEQUENCE and CDS tables in the MySQL database.
 
 > templates:
->> `gene_annotation.html`: HTML template for displaying gene annotation information. 
+>> - `gene_annotation.html`: HTML template for displaying gene annotation information. 
