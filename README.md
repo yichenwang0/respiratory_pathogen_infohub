@@ -47,6 +47,7 @@ For optimal performance, the following hardware specifications are recommended:
 ## File Descriptions
 
 - `Project Proposal.pdf`: PDF document containing the original project proposal.
+- `Project Narrative.pdf`: PDF document providing an overview of why I chose this project, its potential applications in the field, the challenges I overcame during implementation, and other relevant information.
 - `README.md`: You are here! Markdown file containing basic information about the application and instructions for usage.
 - `gene_annotation.cgi`: Python CGI script that retrieves gene annotation information from the MySQL database based on the provided pathogen ID and generates a dynamic HTML page displaying the gene annotations.
 - `pathogen_search.cgi`: Python CGI script responsible for handling the search functionality on the main page of the infohub. It retrieves pathogen information from the MySQL database based on the user's input and returns the results in JSON format to be processed by the JavaScript frontend.
