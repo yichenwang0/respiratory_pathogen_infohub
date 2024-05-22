@@ -38,7 +38,7 @@ Please note that the screenshots only display the top portion of the gene annota
 ## Requirements
 ### Deployment Options ###
 - **Online Access**: The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.jhu.edu server. To access the application online, you need to be connected to the JHU Network or VPN. Once connected to the JHU network or VPN, you can access the application using the following link: [Respiratory Pathogen Information Hub](http://bfx3.aap.jhu.edu/ywang833/final/respiratory_pathogen_infohub.html) A stable internet connection is recommended for seamless usage.
-- **Self-Deployment**: You can clone this GitHub repository or download the most recent release to another server that is capable of serving Python CGI files. Execute the `database_setup.sql` script in a MySQL server to set up the required database schema. Run the `extract.py` script with the path to each GenBank file and its corresponding `pathogen_id` to finish populating the tables. Make sure to modify the MySQL connector in the Python CGI scripts accordingly. 
+- **Self-Deployment**: You can clone this GitHub repository or download the most recent release to a server that is capable of serving Python CGI files. Execute the `database_setup.sql` script in a MySQL server to set up the required database schema. Run the `extract.py` script with the path to each GenBank file and its corresponding **pathogen_id** to finish populating the tables. Make sure to modify the MySQL connector in the Python CGI scripts accordingly. 
 ### Hardware Recommendations ###
 For optimal performance, the following hardware specifications are recommended:
 - **Memory**: At least 2 GB of RAM.
