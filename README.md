@@ -38,7 +38,7 @@ Please note that the screenshots only display the top portion of the gene annota
 ## Requirements
 ### Deployment Options ###
 - **Online Access**: The Respiratory Pathogen Information Hub is currently deployed on the bfx3.aap.jhu.edu server. To access the application online, you need to be connected to the JHU Network or VPN. Once connected to the JHU network or VPN, you can access the application using the following link: [Respiratory Pathogen Information Hub](http://bfx3.aap.jhu.edu/ywang833/final/respiratory_pathogen_infohub.html) A stable internet connection is recommended for seamless usage.
-- **Self-Deployment**: You can clone this GitHub repository to another web server that is capable of serving Python CGI files. Execute the `database_setup.sql` script in a MySQL server to set up the required database schema. Run the `extract.py` script with the path to each GenBank file and its corresponding `pathogen_id` to finish populating the tables. Make sure to modify the MySQL connector in the Python CGI scripts accordingly. 
+- **Self-Deployment**: You can clone this GitHub repository or download the most recent release to another server that is capable of serving Python CGI files. Execute the `database_setup.sql` script in a MySQL server to set up the required database schema. Run the `extract.py` script with the path to each GenBank file and its corresponding `pathogen_id` to finish populating the tables. Make sure to modify the MySQL connector in the Python CGI scripts accordingly. 
 ### Hardware Recommendations ###
 For optimal performance, the following hardware specifications are recommended:
 - **Memory**: At least 2 GB of RAM.
@@ -47,7 +47,7 @@ For optimal performance, the following hardware specifications are recommended:
 ## File Descriptions
 
 - `Project Proposal.pdf`: PDF document containing the original project proposal.
-- `Project Narrative.pdf`: PDF document providing an overview of why I chose this project, its potential applications in the field, the challenges I overcame during implementation, and other relevant information.
+- `Project Narrative.pdf`: PDF document providing an overview of why this project is chosen, its potential applications in the field, the challenges overcome during implementation, and other relevant information.
 - `README.md`: You are here! Markdown file containing basic information about the application and instructions for usage.
 - `gene_annotation.cgi`: Python CGI script that retrieves gene annotation information from the MySQL database based on the provided pathogen ID and generates a dynamic HTML page displaying the gene annotations.
 - `pathogen_search.cgi`: Python CGI script responsible for handling the search functionality on the main page of the infohub. It retrieves pathogen information from the MySQL database based on the user's input and returns the results in JSON format to be processed by the JavaScript frontend.
